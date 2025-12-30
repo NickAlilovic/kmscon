@@ -9,7 +9,7 @@ console. See kmscon(1) man-page for usage information.
 ## ARMBIAN BUILD
 Kmscon deb package requires the following software:
 
-* **libtsm**: terminal emulator state machine
+**[libtsm](https://github.com/NickAlilovic/libtsm)**: terminal emulator state machine
 
 ```bash
 git clone github.com
