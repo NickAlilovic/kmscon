@@ -21,7 +21,6 @@ dpkg-buildpackage -us -uc
 ## Requirements
 
 Kmscon requires the following software:
-  - [libtsm](https://github.com/kmscon/libtsm): terminal emulator state machine
   - [libudev](https://www.freedesktop.org/software/systemd/man/libudev.html): providing input, video, etc. device hotplug support (>=v172)
   - [libxkbcommon](https://xkbcommon.org/): providing internationalized keyboard handling
   - [libdrm](https://gitlab.freedesktop.org/mesa/drm): graphics access to DRM/KMS subsystem
