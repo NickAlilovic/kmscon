@@ -4,7 +4,7 @@ Kmscon is a simple terminal emulator based on linux kernel mode setting (KMS).
 It is an attempt to replace the in-kernel VT implementation with a userspace
 console. See kmscon(1) man-page for usage information.
 
-## Debian Package BUILD
+## Debian Package Build
 
 ```bash
 sudo apt update
