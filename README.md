@@ -5,9 +5,6 @@ It is an attempt to replace the in-kernel VT implementation with a userspace
 console. See kmscon(1) man-page for usage information.
 
 ## ARMBIAN BUILD
-Kmscon deb package requires the following software:
-
-**[libtsm](https://github.com/NickAlilovic/libtsm)**: terminal emulator state machine
 
 ```bash
 git clone https://github.com/NickAlilovic/kmscon.git
@@ -19,6 +16,7 @@ dpkg-buildpackage -us -uc
 ## Requirements
 
 Kmscon requires the following software:
+  - **[libtsm](https://github.com/NickAlilovic/libtsm)**: terminal emulator state machine
   - [libudev](https://www.freedesktop.org/software/systemd/man/libudev.html): providing input, video, etc. device hotplug support (>=v172)
   - [libxkbcommon](https://xkbcommon.org/): providing internationalized keyboard handling
   - [libdrm](https://gitlab.freedesktop.org/mesa/drm): graphics access to DRM/KMS subsystem
