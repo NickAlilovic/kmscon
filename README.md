@@ -16,6 +16,7 @@ git clone github.com
 cd kmscon
 git archive --prefix=kmscon-9.2.1/ -o ../kmscon_9.2.1.orig.tar.gz HEAD
 dpkg-buildpackage -us -uc
+```
 
 ## Requirements
 
