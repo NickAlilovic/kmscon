@@ -12,7 +12,7 @@ Kmscon deb package requires the following software:
 **[libtsm](https://github.com/NickAlilovic/libtsm)**: terminal emulator state machine
 
 ```bash
-git clone github.com
+git clone https://github.com/NickAlilovic/kmscon.git
 cd kmscon
 git archive --prefix=kmscon-9.2.1/ -o ../kmscon_9.2.1.orig.tar.gz HEAD
 dpkg-buildpackage -us -uc
