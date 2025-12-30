@@ -145,6 +145,11 @@ environment variable that is set on new terminal sessions\&. (default: xterm\-25
 Reset environment before spawning the child process\&. (default: on)
 .RE
 .PP
+\fB\-\-backspace\-delete\fR
+.RS 4
+Send delete character when backspace is pressed\&. (default: on)
+.RE
+.PP
 \fB\-\-sb\-size {size}\fR
 .RS 4
 Specify the size of the scrollback buffer (in lines)\&. (default: 1000)
@@ -203,7 +208,7 @@ Time between two key repeats (in milliseconds)\&. (default: 50)
 .PP
 \fB\-\-mouse\fR
 .RS 4
-Enable mouse/touchpad/trackpoint in kmscon (default: off)\&. It allows to select, and copy/paste text with a pointing device, and also to scroll with the mouse wheel\&. It\*(Aqs still experimental, and may not work with specific devices\&.
+Enable mouse/touchpad/trackpoint in kmscon (default: on)\&. It allows to select, and copy/paste text with a pointing device, and also to scroll with the mouse wheel\&. It\*(Aqs still experimental, and may not work with specific devices\&.
 .RE
 .PP
 Grabs / Keyboard Shortcuts:
@@ -279,6 +284,11 @@ Rotate output clock\-wise: Normal \-> Right \-> Inverted \-> Left and so on\&. (
 \fB\-\-grab\-rotate\-ccw {grab}\fR
 .RS 4
 Rotate output counter\-clock\-wise: Normal \-> Left \-> Inverted \-> Right and so on\&. (default: <Logo>Minus)
+.RE
+.PP
+\fB\-\-grab\-reboot {grab}\fR
+.RS 4
+Reboot the system when this keyboard shortcut is pressed\&. This option is disabled by default (no default key binding)\&. Use with caution as the reboot is immediate without confirmation\&. Example: \-\-grab\-reboot=<Ctrl><Alt>Delete (default: disabled)
 .RE
 .PP
 Video Options:

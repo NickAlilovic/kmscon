@@ -166,6 +166,11 @@ Value of the TERM environment variable for the child process\&. (default: xterm\
 Reset environment before running child process\&. (default: on)
 .RE
 .PP
+\fBbackspace\-delete\fR
+.RS 4
+Send delete character when backspace is pressed\&. (default: on)
+.RE
+.PP
 \fBpalette\fR
 .RS 4
 Select the used color palette\&. (default: default)
@@ -215,7 +220,7 @@ Delay between two key\-repeats in ms\&. (default: 50)
 .PP
 \fB\-\-mouse\fR
 .RS 4
-Enable mouse/touchpad/trackpoint in kmscon (default: off)\&. It allows to select, and copy/paste text with a pointing device, and also to scroll with the mouse wheel\&. It\*(Aqs still experimental, and may not work with specific devices\&.
+Enable mouse/touchpad/trackpoint in kmscon (default: on)\&. It allows to select, and copy/paste text with a pointing device, and also to scroll with the mouse wheel\&. It\*(Aqs still experimental, and may not work with specific devices\&.
 .RE
 .PP
 \fI### Grabs/Keyboard\-Shortcuts ###\fR
@@ -283,6 +288,11 @@ Rotate output clock\-wise\&. (default: <Logo>Plus)
 \fBgrab\-rotate\-ccw\fR
 .RS 4
 Rotate output counter\-clock\-wise\&. (default: <Logo>Minus)
+.RE
+.PP
+\fBgrab\-reboot\fR
+.RS 4
+Reboot the system when this keyboard shortcut is pressed\&. This option is disabled by default\&. Use with caution as the reboot is immediate\&. Example: grab\-reboot=<Ctrl><Alt>Delete (default: disabled)
 .RE
 .PP
 \fI### Video Options ###\fR
