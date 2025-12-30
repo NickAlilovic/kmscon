@@ -4,9 +4,10 @@ Kmscon is a simple terminal emulator based on linux kernel mode setting (KMS).
 It is an attempt to replace the in-kernel VT implementation with a userspace
 console. See kmscon(1) man-page for usage information.
 
-## ARMBIAN BUILD
+## Debian Package BUILD
 
 ```bash
+sudo apt update
 sudo apt install dh-sequence-builtusing docbook-xml docbook-xsl libdrm-dev libegl-dev libgbm-dev libgles-dev libpango1.0-dev libpixman-1-dev libsystemd-dev libudev-dev systemd-dev unifont xsltproc
 git clone https://github.com/NickAlilovic/kmscon.git
 cd kmscon
