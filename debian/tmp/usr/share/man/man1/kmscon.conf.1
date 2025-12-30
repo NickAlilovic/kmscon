@@ -1,0 +1,351 @@
+'\" t
+.\"     Title: kmscon.conf
+.\"    Author: Mirco Müller <macslow@gmail.com>
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: January 2023
+.\"    Manual: kmscon.conf
+.\"    Source: kmscon.conf
+.\"  Language: English
+.\"
+.TH "KMSCON\&.CONF" "1" "January 2023" "kmscon.conf" "kmscon.conf"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+kmscon.conf \- Configuration file for KMS/DRM based System Console
+.SH "DESCRIPTION"
+.PP
+kmscon\&.conf is the configuration file to control the behavior of kmscon and adjust it to your system\-setup\&. It allows to remap the bindings of keyboard\-shortcuts, define the desired keyboard\-layout, select font attributes for text\-rendering, hardware\-accelerationn, orientation of output and much more\&.
+.PP
+Below is a complete list of all recognized
+\fIOptions\fR, their meaning and possible values\&. In section
+\fIExample\fR
+is a typical real\-world sample of a configuration to guide you in creating your own\&.
+.SH "EXAMPLE"
+.PP
+Here is a real\-world example of a typical kmscon\&.conf file:
+.sp
+.if n \{\
+.RS 4
+.\}
+.nf
+### General Options ###
+verbose
+
+### Seat Options ###
+vt=1
+switchvt
+
+### Session Options ###
+session\-max=6
+session\-control
+
+### Terminal Options ###
+term=linux
+
+### Input Options ###
+xkb\-model=pc102
+xkb\-layout=de
+xkb\-repeat\-delay=200
+xkb\-repeat\-rate=65
+mouse
+
+### Video Options ###
+drm
+hwaccel
+gpus=all
+render\-engine=gltex
+rotate=normal
+
+### Font Options ###
+font\-engine=pango
+font\-size=18
+font\-name=Ubuntu Mono
+    
+.fi
+.if n \{\
+.RE
+.\}
+.PP
+Any line starting with a #\-character is ignored and considered to be a comment\&.
+.SH "OPTIONS"
+.PP
+Below is a complete list of all recognized options, their meaning and possible values\&.
+.PP
+\fI### General Options ###\fR
+.PP
+\fBverbose\fR
+.RS 4
+Make kmscon be very chatty about what it is doing\&. It prints to stdout unless redirected\&. Off if not present in kmsconf\&.conf or commented out\&. (default: off)
+.RE
+.PP
+\fBdebug\fR
+.RS 4
+Let kmscon be even more chatty\&. The text\-output goes to stdout or any file it was redirected to\&. Off if not present in kmsconf\&.conf or commented out\&. (default: off)
+.RE
+.PP
+\fBsilent\fR
+.RS 4
+Suppress notices and warnings\&. (default: off)
+.RE
+.PP
+\fBconfigdir\fR
+.RS 4
+Path to config directory\&. (default: /etc/kmscon)
+.RE
+.PP
+\fBlisten\fR
+.RS 4
+Listen for new seats and spawn sessions accordingly\&. (default: off)
+.RE
+.PP
+\fI### Seat Options ###\fR
+.PP
+\fBvt\fR
+.RS 4
+Select which VT to run on\&. (default: auto)
+.RE
+.PP
+\fBswitchvt\fR
+.RS 4
+Automatically switch to VT\&. (default: on)
+.RE
+.PP
+\fBseats\fR
+.RS 4
+Select seats to run on\&. (default: current)
+.RE
+.PP
+\fI### Session Options ###\fR
+.PP
+\fBsession\-max\fR
+.RS 4
+Maximum number of sessions\&. (default: 50)
+.RE
+.PP
+\fBsession\-control\fR
+.RS 4
+Allow keyboard session\-control\&. (default: off)
+.RE
+.PP
+\fBterminal\-session\fR
+.RS 4
+Enable terminal session\&. (default: on)
+.RE
+.PP
+\fI### Terminal Options ###\fR
+.PP
+\fBlogin\fR
+.RS 4
+Start the given login process instead of the default process; all arguments following \*(Aq\-\-\*(Aq will be be parsed as argv to this process\&. No more options after \*(Aq\-\-\*(Aq will be parsed so use it at the end of the argument string\&. (default: /bin/login \-p)
+.RE
+.PP
+\fBterm\fR
+.RS 4
+Value of the TERM environment variable for the child process\&. (default: xterm\-256color)
+.RE
+.PP
+\fBreset\-env\fR
+.RS 4
+Reset environment before running child process\&. (default: on)
+.RE
+.PP
+\fBpalette\fR
+.RS 4
+Select the used color palette\&. (default: default)
+.RE
+.PP
+\fBsb\-size\fR
+.RS 4
+Size of the scrollback\-buffer in lines\&. (default: 1000)
+.RE
+.PP
+\fI### Input Options ###\fR
+.PP
+\fBxkb\-model\fR
+.RS 4
+Set XkbModel for input devices\&. (default: unset)
+.RE
+.PP
+\fBxkb\-layout\fR
+.RS 4
+Set XkbLayout for input devices\&. (default: unset)
+.RE
+.PP
+\fBxkb\-variant\fR
+.RS 4
+Set XkbVariant for input devices\&. (default: unset)
+.RE
+.PP
+\fBxkb\-options\fR
+.RS 4
+Set XkbOptions for input devices\&. (default: unset)
+.RE
+.PP
+\fBxkb\-keymap\fR
+.RS 4
+Use a predefined keymap for input devices\&. (default: unset)
+.RE
+.PP
+\fBxkb\-repeat\-delay\fR
+.RS 4
+Initial delay for key\-repeat in ms\&. (default: 250)
+.RE
+.PP
+\fBxkb\-repeat\-rate\fR
+.RS 4
+Delay between two key\-repeats in ms\&. (default: 50)
+.RE
+.PP
+\fB\-\-mouse\fR
+.RS 4
+Enable mouse/touchpad/trackpoint in kmscon (default: off)\&. It allows to select, and copy/paste text with a pointing device, and also to scroll with the mouse wheel\&. It\*(Aqs still experimental, and may not work with specific devices\&.
+.RE
+.PP
+\fI### Grabs/Keyboard\-Shortcuts ###\fR
+.PP
+\fBgrab\-scroll\-up\fR
+.RS 4
+Shortcut to scroll up\&. (default: <Shift>Up)
+.RE
+.PP
+\fBgrab\-scroll\-down\fR
+.RS 4
+Shortcut to scroll down\&. (default: <Shift>Down)
+.RE
+.PP
+\fBgrab\-page\-up\fR
+.RS 4
+Shortcut to scroll page up\&. (default: <Shift>Prior)
+.RE
+.PP
+\fBgrab\-page\-down\fR
+.RS 4
+Shortcut to scroll page down\&. (default: <Shift>Next)
+.RE
+.PP
+\fBgrab\-zoom\-in\fR
+.RS 4
+Shortcut to increase font size\&. (default: <Ctrl>Plus)
+.RE
+.PP
+\fBgrab\-zoom\-out\fR
+.RS 4
+Shortcut to decrease font size\&. (default: <Ctrl>Minus)
+.RE
+.PP
+\fBgrab\-session\-next\fR
+.RS 4
+Switch to next session\&. (default: <Ctrl><Logo>Right)
+.RE
+.PP
+\fBgrab\-session\-prev\fR
+.RS 4
+Switch to previous session\&. (default: <Ctrl><Logo>Left)
+.RE
+.PP
+\fBgrab\-session\-dummy\fR
+.RS 4
+Switch to dummy session\&. (default: <Ctrl><Logo>Escape)
+.RE
+.PP
+\fBgrab\-session\-close\fR
+.RS 4
+Close current session\&. (default: <Ctrl><Logo>BackSpace)
+.RE
+.PP
+\fBgrab\-terminal\-new\fR
+.RS 4
+Create new terminal session\&. (default: <Ctrl><Logo>Return)
+.RE
+.PP
+\fBgrab\-rotate\-cw\fR
+.RS 4
+Rotate output clock\-wise\&. (default: <Logo>Plus)
+.RE
+.PP
+\fBgrab\-rotate\-ccw\fR
+.RS 4
+Rotate output counter\-clock\-wise\&. (default: <Logo>Minus)
+.RE
+.PP
+\fI### Video Options ###\fR
+.PP
+\fBdrm\fR
+.RS 4
+Use DRM if available\&. (default: on)
+.RE
+.PP
+\fBhwaccel\fR
+.RS 4
+Use 3D hardware\-acceleration if available\&. (default: off)
+.RE
+.PP
+\fBgpus\fR
+.RS 4
+GPU selection mode\&. (default: all)
+.RE
+.PP
+\fBrender\-engine\fR
+.RS 4
+Console renderer\&. (default: not set)
+.RE
+.PP
+\fBuse\-original\-mode\fR
+.RS 4
+Use the original KMS video mode\&. (default: on)
+.RE
+.PP
+\fBmode\fR
+.RS 4
+Set the resolution to {width}x{height}
+.RE
+.PP
+\fBrotate\fR
+.RS 4
+Orientation of output to use\&. (default: normal)
+.RE
+.PP
+\fI### Font Options ###\fR
+.PP
+\fBfont\-engine\fR
+.RS 4
+Font engine to use\&. (default: pango)
+.RE
+.PP
+\fBfont\-size\fR
+.RS 4
+Font size in points\&. (default: 12)
+.RE
+.PP
+\fBfont\-name\fR
+.RS 4
+Font name to use\&. (default: monospace)
+.RE
+.PP
+\fBfont\-dpi\fR
+.RS 4
+Force DPI value for all fonts\&. (default: 96)
+.RE
+.SH "FILES"
+.PP
+\fI/etc/kmsconf\&.conf\fR
+.SH "SEE ALSO"
+.PP
+\fBkmscon\fR(1)

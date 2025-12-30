@@ -1,5 +1,2 @@
-0001-Change-kmsconvt-.service-to-match-getty-.service.patch
 0002-Do-not-use-git-describe-to-generate-version.patch
 0003-Use-system-version-of-unifont.hex.patch
-0004-Use-correct-systemd-system-unit-directory.patch
-0005-Run-agetty-instead-of-login.patch

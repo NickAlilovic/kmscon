@@ -1,5 +1,7 @@
-${env:SYSTEMD_SYSTEM_UNIT_DIR}/kmsconvt@.service
-debian/kmscon.conf etc/needrestart/conf.d
 usr/bin/kmscon
-usr/lib/${DEB_HOST_MULTIARCH}/kmscon/mod-*.so
+usr/bin/kmscon-launch-gui
 usr/libexec/kmscon/kmscon
+usr/lib/*/kmscon/mod-*.so
+etc/kmscon/kmscon.conf /etc/kmscon/
+usr/share/man/man1/kmscon.conf.1 usr/share/man/man1/
+usr/lib/systemd/system/kmsconvt@.service usr/lib/systemd/system/
