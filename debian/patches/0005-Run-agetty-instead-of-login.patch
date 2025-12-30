@@ -1,0 +1,31 @@
+From: Victor Westerhuis <victor@westerhu.is>
+Date: Tue, 5 Jul 2022 15:15:23 +0200
+Subject: Run agetty instead of login
+
+This makes backspace work on the login prompt.
+It also prints /etc/issue at the prompt.
+
+kmscon does not come close to fully supporting everything xterm does, but
+setting TERM to xterm-256color only perpetuates the lie that kmscon already told 
+its children before.
+In time either kmscon needs to support (more of) xterm's behavior or it needs
+to use another TERM value.
+
+Forwarded: no
+---
+ docs/kmsconvt@.service.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/docs/kmsconvt@.service.in b/docs/kmsconvt@.service.in
+index a8477de..a63fc24 100644
+--- a/docs/kmsconvt@.service.in
++++ b/docs/kmsconvt@.service.in
+@@ -32,7 +32,7 @@ IgnoreOnIsolate=yes
+ ConditionPathExists=/dev/tty0
+ 
+ [Service]
+-ExecStart=@bindir@/kmscon "--vt=%I" --seats=seat0 --no-switchvt
++ExecStart=@bindir@/kmscon "--vt=%I" --seats=seat0 --no-switchvt --login -- /sbin/agetty -o '-p -- \\u' - xterm-256color
+ Type=idle
+ UtmpIdentifier=%I
+ TTYPath=/dev/%I

@@ -1,0 +1,53 @@
+From: Victor Westerhuis <victor@westerhu.is>
+Date: Thu, 4 Feb 2021 09:58:30 +0100
+Subject: Change kmsconvt@.service to match getty@.service
+
+Forwarded: no
+---
+ docs/kmsconvt@.service.in | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/docs/kmsconvt@.service.in b/docs/kmsconvt@.service.in
+index 84b66bf..a8477de 100644
+--- a/docs/kmsconvt@.service.in
++++ b/docs/kmsconvt@.service.in
+@@ -4,14 +4,6 @@
+ # spawns KMSCON on this VT. Note that this does automatically limit KMSCON to
+ # seat0. You cannot spawn KMSCON on other seats with this unit.
+ #
+-# You can replace the default getty@.service that is shipped with systemd by
+-# linking it with:
+-#   ln -s /usr/lib/systemd/system/kmsconvt@.service /etc/systemd/system/autovt@.service
+-# This will make systemd start KMSCON instead of agetty on each VT. Or more
+-# precisely, this will make systemd-logind use kmsconvt@.service instead of
+-# getty@.service for new VTs. In fact, all other units/scripts/... that use
+-# getty@.service will not be affected by this change.
+-#
+ # Note that by default getty@.service installs itself as getty@tty1.service.
+ # This unit does the same and overrules getty@tty1.service via the "Conflict"
+ # line below.
+@@ -30,7 +22,10 @@ Description=KMS System Console on %I
+ Documentation=man:kmscon(1)
+ After=systemd-user-sessions.service
+ After=plymouth-quit-wait.service
++After=getty-pre.target
+ Before=getty.target
++Conflicts=rescue.service
++Before=rescue.service
+ Conflicts=getty@%i.service
+ OnFailure=getty@%i.service
+ IgnoreOnIsolate=yes
+@@ -38,6 +33,7 @@ ConditionPathExists=/dev/tty0
+ 
+ [Service]
+ ExecStart=@bindir@/kmscon "--vt=%I" --seats=seat0 --no-switchvt
++Type=idle
+ UtmpIdentifier=%I
+ TTYPath=/dev/%I
+ TTYReset=yes
+@@ -46,3 +42,5 @@ TTYVTDisallocate=yes
+ 
+ [Install]
+ WantedBy=getty.target
++DefaultInstance=tty1
++Alias=autovt@.service

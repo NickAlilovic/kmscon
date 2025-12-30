@@ -1,0 +1,5 @@
+${env:SYSTEMD_SYSTEM_UNIT_DIR}/kmsconvt@.service
+debian/kmscon.conf etc/needrestart/conf.d
+usr/bin/kmscon
+usr/lib/${DEB_HOST_MULTIARCH}/kmscon/mod-*.so
+usr/libexec/kmscon/kmscon

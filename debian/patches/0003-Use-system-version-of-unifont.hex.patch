@@ -1,0 +1,24 @@
+From: Victor Westerhuis <victor@westerhu.is>
+Date: Sun, 19 Jun 2022 16:45:09 +0200
+Subject: Use system version of unifont.hex
+
+The bundled version is very old, according to the comment.
+
+Forwarded: not-needed
+---
+ src/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index 3355fc0..350f6a5 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -154,7 +154,7 @@ uterm_deps = declare_dependency(
+ genunifont = executable('genunifont', 'genunifont.c', native: true)
+ 
+ unifont_bin = custom_target('unifont-bin',
+-  input: ['font_unifont_data.hex'],
++  input: ['/usr/share/unifont/unifont.hex'],
+   output: ['font_unifont_data'],
+   command: [genunifont, '@OUTPUT@', '@INPUT@']
+ )

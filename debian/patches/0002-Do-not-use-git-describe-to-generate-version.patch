@@ -1,0 +1,24 @@
+From: Victor Westerhuis <victor@westerhu.is>
+Date: Thu, 4 Feb 2021 12:36:54 +0100
+Subject: Do not use git describe to generate version
+
+Use the version specified by upstream in meson.build instead.
+
+Forwarded: not-needed
+---
+ src/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index c18759f..3355fc0 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -8,7 +8,7 @@
+ githead = vcs_tag(
+   input: 'shl_githead.c.in',
+   output: 'shl_githead.c',
+-  command: ['git', 'describe'],
++  command: ['false'],
+   fallback: 'v' + meson.project_version(),
+ )
+ 

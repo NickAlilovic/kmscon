@@ -1,0 +1,41 @@
+kmscon (9.0.0-5) unstable; urgency=medium
+
+  * Stop using undocumented autoscripts in d/rules.
+  * Use dh_builtusing to generate Built-Using dependency on unifont.
+  * Fix FTBFS when systemd.pc changes systemdsystemunitdir.
+    Thanks to Helmut Grohne. (Closes: 1052644)
+
+ -- Victor Westerhuis <victor@westerhu.is>  Mon, 04 Dec 2023 14:55:05 +0100
+
+kmscon (9.0.0-4) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster (oldstable).
+
+  [ Victor Westerhuis ]
+  * Update standards version to 4.6.2, no changes needed.
+  * Disable -Werror=array-bounds.
+
+ -- Victor Westerhuis <victor@westerhu.is>  Sun, 29 Jan 2023 20:19:17 +0100
+
+kmscon (9.0.0-3) unstable; urgency=medium
+
+  * Depend on init-system-helpers >= 1.65
+  * Fix Built-Using calculation in d/rules
+  * Register exception with needrestart (Closes: 1024345)
+  * Update d/watch
+
+ -- Victor Westerhuis <victor@westerhu.is>  Sun, 20 Nov 2022 18:39:48 +0100
+
+kmscon (9.0.0-2) unstable; urgency=medium
+
+  * Run agetty instead of login (Closes: #1014316)
+  * Bump Standards-Version to 4.6.1
+
+ -- Victor Westerhuis <victor@westerhu.is>  Tue, 05 Jul 2022 16:14:32 +0200
+
+kmscon (9.0.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #1004919)
+
+ -- Victor Westerhuis <victor@westerhu.is>  Sun, 19 Jun 2022 22:43:25 +0200
